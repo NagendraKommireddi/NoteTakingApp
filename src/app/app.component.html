@@ -1,0 +1,63 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header>
+  <form>
+    <div class="topnav" style="align-content: center">
+        <button mat-icon-button (click)="sidenav.toggle()">
+              <mat-icon   >menu</mat-icon>
+         </button>    
+              <span style="margin-left: 28%"></span>
+              <!-- <button mat-icon-button>
+              <mat-icon  style="color: red" > fiber_manual_record</mat-icon>
+              </button>
+              <button mat-icon-button>
+              <mat-icon  style="color: yellow" > fiber_manual_record</mat-icon>
+              </button>
+              <button mat-icon-button>
+              <mat-icon  style="color: green" > fiber_manual_record</mat-icon>
+              </button> -->
+              <button mat-icon-button (click)="remove()">
+                  <mat-icon *ngIf="blocks?.length>0"  >delete</mat-icon>
+              </button>
+              <button mat-icon-button (click)="addCard()">
+                    <mat-icon  >edit</mat-icon>
+              </button>
+              <span style="margin-left: 10px" ></span>
+              <mat-form-field style="width: 500px">
+              <input  matSuffic matInput [(ngModel)]="searchText" name="search"  placeholder="Search">      
+              </mat-form-field>
+              <button mat-icon-button>
+              <mat-icon  >search</mat-icon>
+              </button>
+      </div>
+    </form>
+</header>
+<mat-sidenav-container class="example-container">
+  <mat-icon class="icons" >search</mat-icon>
+    <mat-sidenav class="sidenav"  #sidenav mode="side"   [(opened)]="opened"
+    (opened)="events.push('open!')"
+               (closed)="events.push('close!')"
+    >
+    <mat-card (click)="select($event.path)"  id="{{ 'wave' + i }}" style="width: 500px; height: 100px;" *ngFor="let block of blocks |filter:searchText ;let i=index ">
+      <mat-card-header> 
+       {{block.blockHeader}}
+        <mat-card-title>
+       {{block.blockTitle}}
+       </mat-card-title>
+      </mat-card-header>
+     
+    <mat-card-content  >{{block.blockContent}}</mat-card-content>
+    </mat-card>
+    </mat-sidenav>
+    <mat-sidenav-content >
+              <h3>
+                {{now}}
+              </h3>
+             <form>
+               <mat-form-field style="width: 80%;height: 100%" >
+               <textarea (keyup)="onkey($event)"  matInput  name="text" [(ngModel)]="serverName"></textarea>
+             </mat-form-field>
+            </form>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+

@@ -1,0 +1,67 @@
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color:skyblue;
+  overflow: inherit;
+}
+
+/* Style the links inside the navigation bar */
+.button {
+  /* float: left; */
+  align-self: center;
+  color: green;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+  /* font-size: 1px; */
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.example-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.example-sidenav-content {
+
+  width:50%;
+}
+.sidenav {
+  background-color: antiquewhite;
+  width: 40%;
+  padding: 10px;
+}
+.icons{
+   margin: 10px; 
+   border: 1px solid black;
+}
+.icons:hover{
+  cursor: pointer
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.mat-card:hover{
+  background-color: green;
+  cursor: pointer
+}
+.mat-card-content:hover{
+  pointer-events: none
+}
+.mat-card-title:hover{
+  pointer-events: none
+}
+.mat-card-header:hover{
+  pointer-events: none
+}
