@@ -9,8 +9,6 @@ import {MatSidenav,MatDrawer}from '@angular/material';
 
 export class AppComponent {
   serverName:any
-  sidenavWidth:number
-
   count:number
   containers=[]
   blocks=[]
@@ -20,21 +18,20 @@ export class AppComponent {
   title = 'automate';
   public now: Date = new Date();
 
-  remove(){
-    this.serverName=[]
-    this.blocks.pop()
-
-    console.log(this.blocks[(this.blocks.length)-1])
-    localStorage.removeItem(this.blocks.length.toString());
-  }
-  public setSidenav(sidenav: MatDrawer) {
-}
   constructor() {  
-    this.sidenavWidth=4
     setInterval(() => {
       this.now = new Date();
     }, 1);
   }
+
+  //Removing the note 
+  remove(){
+    this.serverName=[]
+    this.blocks.pop()
+    localStorage.removeItem(this.blocks.length.toString());
+  }
+
+  //Selecting the note
   select(v:any){
 
     console.log(v[0].id)
@@ -42,6 +39,7 @@ export class AppComponent {
     this.serverName=v[0].childNodes[1].innerText
     localStorage.setItem("Default",v[0].id)
   }
+  //Adding the note
   addCard() {
     this.blocks.push({
   blockHeader:this.formatAMPM(this.now),
@@ -51,11 +49,11 @@ export class AppComponent {
   this.alternate=this.blocks;
   this.addlocalstorge((this.blocks.length)-1)
   }
-
   addlocalstorge(number:number){
     localStorage.setItem(number.toString(),this.blocks[number-1].blockContent)
   }
 
+  //Editing the note
   onkey(v:any){
       var data=document.getElementById(localStorage.getItem("Default"));
       var rollid= data.id.split("e");
@@ -64,6 +62,7 @@ export class AppComponent {
       console.log(data.children[1].innerHTML=this.serverName)
   }
 
+  //Manging time Format
   formatAMPM(date) {
     var hours = date.getHours();
     var minutes = date.getMinutes();
