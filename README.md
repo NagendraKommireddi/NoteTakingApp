@@ -12,6 +12,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
+Run `npm install --save-dev @angular-devkit/build-angular` to continue with the ng-build command or else you can simply use the `npm install` command
+
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
